@@ -1,0 +1,27 @@
+{
+    "languageserver": {
+        "intelephense": {
+            "command": "intelephense",
+            "args": ["--stdio"],
+            "filetypes": ["php"],
+            "initializationOptions": {
+                "storagePath": "/tmp/intelephense"
+            }
+        },
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
+    },
+    "java.jdt.ls.vmargs": "-javaagent:/usr/share/java/lombok/lombok.jar -Xbootclasspath/a:/usr/share/java/lombok/lombok.jar",
+    "eslint.filetypes": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "java.format.settings.url": "/home/pam/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+    "rust-analyzer.lruCapacity": 1
+}

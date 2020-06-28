@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/pam/repos/vim-config/ftplugin'
+let g:netrw_dirhist_2='/usr/share/sddm/themes/sugar-dark'
+let g:netrw_dirhist_1='/home/pam/.config/polybar'
+let g:netrw_dirhist_0='/home/pam/Documents/Programming/rust/vess/src/repositories'
+let g:netrw_dirhist_9='/home/pam/Documents/Programming/rust/vess/src/controllers'
+let g:netrw_dirhist_8='/home/pam/repos/avs-integrated/vendor'
+let g:netrw_dirhist_7='/home/pam/repos/avs-integrated/tests'
+let g:netrw_dirhist_6='/home/pam/repos/avs-integrated/storage'
+let g:netrw_dirhist_5='/home/pam/repos/avs-integrated/routes'
+let g:netrw_dirhist_4='/home/pam/repos/avs-integrated/resources'
