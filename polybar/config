@@ -18,12 +18,12 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #000
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #0ff
 secondary = #e60053
 alert = #bd2c40
 
@@ -33,7 +33,7 @@ width = 100%
 height = 27
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 6.0
+radius = 0
 fixed-center = false
 
 monitor = ${env:MONITOR:}
@@ -57,9 +57,9 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = i3
-; modules-center = mpd
-modules-right = filesystem alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-left = i3 xwindow
+; modules-center = xwindow
+modules-right = wlan eth popup-calendar filesystem alsa memory cpu battery temperature pulseaudio  powermenu
 
 tray-position = right
 tray-padding = 2
@@ -81,7 +81,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:100:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -144,6 +144,7 @@ pin-workspaces = true
 strip-wsnumbers = true 
 
 indes-sort = true
+
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -227,12 +228,12 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp41s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid%
+label-connected = %essid% (%signal%%: %downspeed%)
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
@@ -248,13 +249,13 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = net0
+interface = enp39s0
 interval = 3.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %local_ip%: %downspeed%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -304,6 +305,7 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
+interval = 5
 
 [module/alsa]
 type = internal/alsa
@@ -425,5 +427,16 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/popup-calendar]
+type = custom/script
+exec = /home/pam/.config/polybar/scripts/popup-calendar.sh
+interval = 5
+click-left = /home/pam/.config/polybar/scripts/popup-calendar.sh --popup &
+
+[module/info-hackspeed]
+type = custom/script
+exec = /usr/share/polybar/scripts/info-hackspeed.sh
+tail = true
 
 ; vim:ft=dosini

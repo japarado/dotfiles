@@ -1,22 +1,22 @@
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.php,*.xml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.php,*.xml,*.tsx,*.ts'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.xml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.xml,*.tsx,*.ts'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
 "
-let g:closetag_filetypes = 'html,xhtml,phtml,js,jsx,php,xml'
+let g:closetag_filetypes = 'html,xhtml,phtml,js,jsx,php,xml,tsx,ts'
 
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,xml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,xml,tsx,ts'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
@@ -28,6 +28,7 @@ let g:closetag_emptyTags_caseSensitive = 1
 "
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'typescriptreact.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
     \ }
 

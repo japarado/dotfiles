@@ -173,9 +173,12 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse no
 
 # Background images
-# exec_always feh --bg-scale /usr/share/backgrounds/Octopath.jpg --bg-scale /usr/share/backgrounds/Undertale.png
-exec_always feh --bg-scale /home/pam/Pictures/backgrounds/samus.jpg --bg-scale /usr/share/backgrounds/Undertale.png
-exec_always xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+# exec_always xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
+# exec_always xrandr --output DP-0 --mode 1920x1080 --rate 144
+# exec_always xrandr --output DP-1 --mode 1920x1080 --rate 144
+exec_always xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.0
+exec_always xrandr --output DP-4 --mode 1920x1080 --rate 144.0 --right-of DP-0
+exec_always feh --bg-scale $HOME/Pictures/backgrounds/nier-2b.jpg
 
 # Custom window resize controls
 bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
@@ -184,9 +187,12 @@ bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
 
 # Media volume controls
-bindsym XF86AudioMute exec amixer sset 'Master' toggle
-bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -197,7 +203,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # App shortcuts
 bindsym Shift+Print exec xfce4-screenshooter -r
-bindsym Control+Shift+Escape exec gnome-system-monitor
+bindsym Control+Shift+grave exec gnome-system-monitor
 bindsym Print exec xfce4-screenshooter -f
 
 # Power controls 
@@ -225,8 +231,19 @@ gaps inner 15
 smart_gaps on
 smart_borders on
 
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
+
 # class                 border  backgr. text    indicator child_border
-client.focused          #285577 #47f02e #000000   #285577
+client.focused          #285577 #5a12e0 #000000   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -237,6 +254,10 @@ client.background       #ffffff
 # Application autoruns
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
-exec --no-startup-id optimus-manager-qt
+exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+# exec --no-startup-id systemctl --user start xfce4-notifyd
 exec --no-startup-id xfce4-clipman
-exec --no-startup-id mako
+# exec --no-startup-id nm-applet
+
+# Custom windows
+for_window [class="Yad" title="yad-calendar"] floating enable

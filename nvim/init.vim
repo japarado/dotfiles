@@ -1,4 +1,4 @@
-if &compatible
+if &compatible 
 	set nocompatible
 endif
 " Add the dein installation directory into runtimepath
@@ -13,11 +13,14 @@ if dein#load_state('~/.cache/dein')
 	" Syntax Support
 	call dein#add('jwalton512/vim-blade', { 'on_ft': 'blade' })
 	call dein#add('StanAngeloff/php.vim', { 'on_ft': 'php' })
-	call dein#add('HerringtonDarkholme/yats.vim', { 'on_ft': 'typescript' })
-	call dein#add('yuezk/vim-js', { 'on_ft': ['javascript', 'php', 'blade'] })
-	call dein#add('maxmellon/vim-jsx-pretty', { 'on_ft': 'javascript' })
+	call dein#add('HerringtonDarkholme/yats.vim', { 'on_ft': ['typescript', 'typescriptreact'] })
+	call dein#add('yuezk/vim-js', { 'on_ft': ['javascript', 'javascriptreact', 'php', 'blade'] })
+	call dein#add('maxmellon/vim-jsx-pretty', { 'on_ft': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] })
 	call dein#add('cakebaker/scss-syntax.vim', { 'on_ft': ['sass','scss'] })
 	call dein#add('rust-lang/rust.vim', { 'on_ft': 'rust' })
+	call dein#add('styled-components/vim-styled-components', { 'rev': 'main' })
+	" call dein#add('vim-ruby/vim-ruby', {'on_ft': ['ruby', 'eruby']})
+	" call dein#add('tpope/vim-endwise', {'on_ft': ['ruby']})
 
 	" Syntax Utilities
 	call dein#add('ap/vim-css-color', {'on_ft': ['css']})
@@ -26,11 +29,14 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('https://github.com/mattn/emmet-vim', { 'on_ft': ['html', 'php', 'blade',  'javascript', 'javascriptreact', 'typescriptreact'] })
 	call dein#add('euclio/vim-markdown-composer', { 'build': 'cargo build --release' })
 	call dein#add('stephpy/vim-php-cs-fixer', { 'on_ft': 'php' })
+	call dein#add('cespare/vim-toml')
 
 	" Themes
 	call dein#add('sjl/badwolf')
 	call dein#add('gruvbox-community/gruvbox')
+	call dein#add('sainnhe/gruvbox-material')
 	call dein#add('micke/vim-hybrid')
+	call dein#add('ayu-theme/ayu-vim')
 	" call dein#add('jaredgorski/SpaceCamp')
 
 	" Status lines
@@ -43,6 +49,7 @@ if dein#load_state('~/.cache/dein')
 	" call dein#add('neoclide/coc.nvim', { 'build': 'yarn install --frozen-lockfile' })
 	call dein#add('neoclide/coc.nvim', { 'rev': 'release' })
 	" call dein#add('dense-analysis/ale')
+	call dein#add('jparise/vim-graphql')
 
 	" Utilities
 	call dein#add('tpope/vim-surround')
@@ -55,9 +62,11 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('majutsushi/tagbar')	
 	call dein#add('francoiscabrol/ranger.vim')	
+	call dein#add('junegunn/fzf', {'build': 'fzf#install()'})
 	call dein#add('junegunn/fzf.vim')
 	" call dein#add('camspiers/lens.vim')
 	call dein#add('rbgrouleff/bclose.vim')
+	call dein#add('tpope/vim-obsession')
 
 	if !has('nvim')
 		call dein#add('roxma/nvim-yarp')
@@ -81,6 +90,8 @@ source ~/.config/nvim/plugin/lightline.vim
 
 filetype plugin indent on
 syntax enable
+
+" let ayucolor="mirage"
 
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
@@ -110,6 +121,7 @@ set tabstop=4
 set shiftwidth=4
 set noexpandtab
 set noswapfile
+set re=0
 
 " Shortcuts
 map <C-p> :Files <CR>
@@ -117,8 +129,8 @@ map <Leader>t  :tabnew <CR>
 map <F5> :e! <CR>
 
 " Set yanking and pasting to clipboard
-vnoremap y "*y
-vnoremap p "*p
+vnoremap y "+y
+" vnoremap p "+p
 
 
 let g:auto_save = 1

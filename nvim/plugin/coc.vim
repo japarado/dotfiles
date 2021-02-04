@@ -123,5 +123,7 @@ autocmd FileType css nnoremap <buffer> <F7> :Prettier <CR>
 autocmd FileType scss nnoremap <buffer> <F7> :Prettier <CR>
 autocmd FileType sass nnoremap <buffer> <F7> :Prettier <CR>
 autocmd FileType json nnoremap <buffer> <F7> :Prettier <CR>
-autocmd FileType rust nnoremap <buffer> <F7> :!cargo fmt <CR> :e <CR>
+autocmd FileType rust nnoremap <buffer> <F7> :!cargo fmt <CR> 
+			\ :e <CR> 
+			\:CocCommand rust-analyzer.reload <CR> 
 
