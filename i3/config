@@ -176,8 +176,8 @@ focus_follows_mouse no
 # exec_always xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
 # exec_always xrandr --output DP-0 --mode 1920x1080 --rate 144
 # exec_always xrandr --output DP-1 --mode 1920x1080 --rate 144
-exec_always xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.0
-exec_always xrandr --output DP-4 --mode 1920x1080 --rate 144.0 --right-of DP-0
+# exec_always xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.0
+# exec_always xrandr --output DP-4 --mode 1920x1080 --rate 144.0 --right-of DP-0
 exec_always feh --bg-scale $HOME/Pictures/backgrounds/nier-2b.jpg
 
 # Custom window resize controls
