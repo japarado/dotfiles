@@ -26,3 +26,4 @@ function! LightlineFilename()
 	return expand('%')
 endfunction
 
+
