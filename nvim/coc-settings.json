@@ -1,12 +1,32 @@
 {
-	"languageserver": {
-		"intelephense": {
-			"command": "intelephense",
-			"args": ["--stdio"],
-			"filetypes": ["php"],
-			"initializationOptions": {
-				"storagePath": "/tmp/intelephense"
-			}
-		}
-	}
+  "languageserver": {
+    "intelephense": {
+      "command": "intelephense",
+      "args": ["--stdio"],
+      "filetypes": ["php"],
+      "initializationOptions": {
+        "storagePath": "/tmp/intelephense"
+      }
+    },
+    "sql": {
+      "command": "sql-language-server",
+      "args": ["up", "--method", "stdio"],
+      "filetypes": ["sql", "mysql"]
+    },
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  },
+  "rust-analyzer.diagnostics.disabled": ["macro-error"],
+  "angular.experimental-ivy": false,
+  "angular.enable-experimental-ivy-prompt": false
 }

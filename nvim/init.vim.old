@@ -8,14 +8,7 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  " call dein#add('Shougo/deoplete.nvim')
-
-	if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
-
-	" ================================= PLUGIN ZONE ==========================
+  call dein#add('Shougo/deoplete.nvim')
 
 	" Completion
 	call dein#add('neoclide/coc.nvim', {'rev': 'release'}) 
@@ -25,13 +18,11 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('alvan/vim-closetag')
 
 	" Syntax Support
-	" call dein#add('yuezk/vim-js')
-	" call dein#add('HerringtonDarkholme/yats.vim')
-	" call dein#add('maxmellon/vim-jsx-pretty')
-	" call dein#add('rust-lang/rust.vim')
-	" call dein#add('ekalinin/Dockerfile.vim')
-	call dein#add('nvim-treesitter/nvim-treesitter', { 'build': 'TSUpdate' })
-	" call dein#add('nvim-treesitter/nvim-treesitter-angular')
+	call dein#add('yuezk/vim-js')
+	call dein#add('HerringtonDarkholme/yats.vim')
+	call dein#add('maxmellon/vim-jsx-pretty')
+	call dein#add('rust-lang/rust.vim')
+	call dein#add('ekalinin/Dockerfile.vim')
 	
 	" Themes
 	call dein#add('morhetz/gruvbox')
@@ -49,7 +40,10 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('tpope/vim-obsession')
 
-	" ================================= PLUGIN ZONE ==========================
+	if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
   call dein#end()
   call dein#save_state()
@@ -57,7 +51,6 @@ endif
 
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/fzf.vim
-source ~/.config/nvim/plugins/autopairs.vim
 source ~/.config/nvim/plugins/autosave.vim
 source ~/.config/nvim/plugins/vim-closetag.vim
 source ~/.config/nvim/plugins/lightline.vim
@@ -66,12 +59,9 @@ source ~/.config/nvim/keybindings.vim
 filetype plugin indent on
 syntax enable
 
-set autoindent
-set smartindent
 set number
 set termguicolors
 set ignorecase
-set smartcase
 set noshowmode
 set nobackup
 set nowritebackup
@@ -81,7 +71,6 @@ set tabstop=2
 set shiftwidth=0
 
 let g:python2_host_prog="/usr/bin/python2"
-let g:python3_host_prog="/usr/bin/python"
 
 au ColorScheme * hi Normal ctermbg=none guibg=none
 au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
@@ -90,18 +79,3 @@ colorscheme gruvbox
 
 " Gruvbox-specific config
 let g:gruvbox_transparent_bg=0
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
-  incremental_selection = {
-    enable = true,              -- false will disable the whole extension
-  },
-  indent = {
-    enable = false,              -- false will disable the whole extension
-  },
-}
-EOF
