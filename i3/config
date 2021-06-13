@@ -230,7 +230,7 @@ client.background       #ffffff
 exec /usr/bin/polkit-dumb-agent
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
-exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 exec_always --no-startup-id $HOME/.config/sxhkd/launch.sh
 exec xfce4-clipman 
 
