@@ -8,7 +8,7 @@ super + o
 				rofi -show run 
 
 super + p 
-				rofi -show run
+				rofi -show window
 
 # Sound
 XF86AudioRaiseVolume
