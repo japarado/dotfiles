@@ -25,13 +25,9 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('alvan/vim-closetag')
 
 	" Syntax Support
-	" call dein#add('yuezk/vim-js')
-	" call dein#add('HerringtonDarkholme/yats.vim')
-	" call dein#add('maxmellon/vim-jsx-pretty')
-	" call dein#add('rust-lang/rust.vim')
-	" call dein#add('ekalinin/Dockerfile.vim')
-	call dein#add('nvim-treesitter/nvim-treesitter', { 'build': 'TSUpdate' })
-	" call dein#add('nvim-treesitter/nvim-treesitter-angular')
+	call dein#add('nvim-treesitter/nvim-treesitter', { 'hook_post_update': 'TSUpdate' })
+	call dein#add('nvim-treesitter/nvim-treesitter-angular')
+	call dein#add('captbaritone/better-indent-support-for-php-with-html')
 	
 	" Themes
 	call dein#add('morhetz/gruvbox')
@@ -101,7 +97,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,              -- false will disable the whole extension
   },
   indent = {
-    enable = false,              -- false will disable the whole extension
+    enable = true,              -- false will disable the whole extension
   },
 }
 EOF
