@@ -30,16 +30,8 @@ font pango:Fira Code Retina 8.5
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec alacritty
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi
-bindsym $mod+o exec rofi -no-config -no-lazy-grab -show run -modi run -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi
-bindsym $mod+p exec rofi -show window -theme ~/.config/polybar/forest/scripts/rofi/launcher.rasi
 
 #bindsym $mod+space exec rofi -show drun
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -168,17 +160,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
-
 # Justin's stuff
 focus_follows_mouse no
 
-# Background images
-# exec_always xrandr | grep 'HDMI1 connected' && xrandr --output eDP1 --auto --output HDMI1 --auto --right-of eDP1
-# exec_always xrandr --output DP-0 --mode 1920x1080 --rate 144
-# exec_always xrandr --output DP-1 --mode 1920x1080 --rate 144
-# exec_always xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.0
-# exec_always xrandr --output DP-4 --mode 1920x1080 --rate 144.0 --right-of DP-0
+exec_always xrandr --output DP-0 --primary --mode 1920x1080 --rate 144.0
+exec_always xrandr --output DP-4 --mode 1920x1080 --rate 144.0 --right-of DP-0
 exec_always feh --bg-scale $HOME/Pictures/backgrounds/earier-2b.jpg
 
 # Custom window resize controls
@@ -186,18 +172,6 @@ bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
-
-# Media volume controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Polkits and gksu
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
@@ -253,9 +227,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Application autoruns
+exec /usr/bin/polkit-dumb-agent
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
 exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec_always --no-startup-id $HOME/.config/sxhkd/launch.sh
 exec xfce4-clipman 
 
 # Custom windows
