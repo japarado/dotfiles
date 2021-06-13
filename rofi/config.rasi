@@ -1,0 +1,6 @@
+configuration {
+	font: "Noto Sans 15";
+	show-icons: true;
+	fullscreen: true;
+	theme: "~/.config/rofi/theme";
+}
