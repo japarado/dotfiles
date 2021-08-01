@@ -26,8 +26,6 @@ if dein#load_state('~/.cache/dein')
 
 	" Syntax Support
 	call dein#add('nvim-treesitter/nvim-treesitter', { 'hook_post_update': 'TSUpdate' })
-	call dein#add('nvim-treesitter/nvim-treesitter-angular')
-	call dein#add('captbaritone/better-indent-support-for-php-with-html')
 	
 	" Themes
 	call dein#add('morhetz/gruvbox')

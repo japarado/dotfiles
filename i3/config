@@ -218,7 +218,7 @@ for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Require
 for_window [title="^Steam Keyboard$"] floating enable
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #285577 #5a12e0 #000000   #285577
+client.focused          #285577 #5a12e0 #dea5a4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -241,3 +241,10 @@ border_radius 0
 
 # Background images
 exec_always --no-startup-id feh --bg-scale /home/pam/Pictures/backgrounds/nier-2b.jpg --bg-scale /home/pam/Pictures/backgrounds/nier.jpg
+
+# Application autostart on specific workspace
+# exec --no-startup-id i3-msg 'workspace 1; exec firefox-developer-edition'
+# exec --no-startup-id i3-msg 'workspace 2; intellij-idea-ultimate-edition'
+# exec --no-startup-id i3-msg 'workspace 8; steam-native'
+# exec --no-startup-id i3-msg 'workspace 9; discord'
+# exec --no-startup-id i3-msg 'workspace 0; caprine'
