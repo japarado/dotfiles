@@ -234,9 +234,6 @@ exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 exec_always --no-startup-id $HOME/.config/sxhkd/launch.sh
 exec xfce4-clipman 
 
-# Custom windows
-for_window [class="Yad" title="yad-calendar"] floating enable
-
 border_radius 0
 
 # Background images
