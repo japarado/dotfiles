@@ -239,9 +239,3 @@ border_radius 0
 # Background images
 exec_always --no-startup-id feh --bg-scale /home/pam/Pictures/backgrounds/nier-2b.jpg --bg-scale /home/pam/Pictures/backgrounds/nier.jpg
 
-# Application autostart on specific workspace
-# exec --no-startup-id i3-msg 'workspace 1; exec firefox-developer-edition'
-# exec --no-startup-id i3-msg 'workspace 2; intellij-idea-ultimate-edition'
-# exec --no-startup-id i3-msg 'workspace 8; steam-native'
-# exec --no-startup-id i3-msg 'workspace 9; discord'
-# exec --no-startup-id i3-msg 'workspace 0; caprine'
