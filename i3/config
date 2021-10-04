@@ -237,5 +237,4 @@ exec xfce4-clipman
 border_radius 0
 
 # Background images
-exec_always --no-startup-id feh --bg-scale /home/pam/Pictures/backgrounds/nier-2b.jpg --bg-scale /home/pam/Pictures/backgrounds/nier.jpg
-
+exec_always --no-startup-id feh --bg-scale /home/pam/Pictures/backgrounds/nier/nier-2b-9s-fight-yellow.jpg --bg-scale /home/pam/Pictures/backgrounds/nier/nier-2b-pods.jpg
