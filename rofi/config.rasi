@@ -1,6 +1,7 @@
 configuration {
+	modi: "window,run,drun,emoji";
 	font: "Noto Sans 15";
 	show-icons: true;
-	fullscreen: true;
-	theme: "~/.config/rofi/theme";
+	fullscreen: false;
+	theme: "theme";
 }
