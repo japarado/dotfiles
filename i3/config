@@ -227,12 +227,12 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Application autoruns
-exec /usr/bin/polkit-dumb-agent
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
+exec --no-startup-id /usr/bin/polkit-dumb-agent
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 exec_always --no-startup-id $HOME/.config/sxhkd/launch.sh
-exec xfce4-clipman 
+exec_always --no-startup-id $HOME/.config/xfce4/xfce4-clipman/launch.sh
 
 border_radius 0
 
